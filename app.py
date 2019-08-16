@@ -67,7 +67,7 @@ def get_patrimonio(tag_id):
 def upload_image():
     file = request.files['file']
     filename = gen_unique_file_name()
-    file.save(os.path.join('/static/', filename + '.jpg'))
+    file.save(os.path.join('./static/', filename + '.jpg'))
 
     return filename
     
@@ -76,7 +76,7 @@ def gen_unique_file_name():
 
 @app.route('/img/<path:filename>') 
 def send_file(filename): 
-    return send_from_directory('/static/', filename)
+    return send_from_directory('./static/', filename)
 
 if __name__ == '__main__':
     app.run()
