@@ -67,7 +67,7 @@ def get_patrimonio(tag_id):
 def upload_image():
     file = request.files['file']
     filename = gen_unique_file_name()
-    file.save('./static/', filename + '.jpg')
+    file.save('./static/' + filename + '.jpg')
 
     return filename
     
