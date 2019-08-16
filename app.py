@@ -67,10 +67,16 @@ def get_patrimonio(tag_id):
 def upload_image():
     file = request.files['file']
     filename = gen_unique_file_name()
+    check_dir_exists()
     file.save('./static/' + filename + '.jpg')
 
     return filename
-    
+
+def check_dir_exists():
+    if not os.path.exists('./static/'):
+        os.makedirs('./static/')
+        print(os.path.dirname(os.path.abspath(__file__)))
+
 def gen_unique_file_name():
     return str(uuid.uuid4())
 
