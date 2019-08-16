@@ -63,22 +63,11 @@ def get_patrimonio(tag_id):
     
     return patrimonio.to_json()
 
-@app.route('/')
-@app.route('/download')
-def download_image():
-    # TODO: 
-    with open("./imagens/aaa.jpg", 'rb') as bites:
-        return send_file(
-                     io.BytesIO(bites.read()),
-                     attachment_filename='aaa.jpg',
-                     as_attachment=True,
-                     mimetype='image/jpg')
-
 @app.route('/upload', methods=['POST'])
 def upload_image():
     file = request.files['file']
     filename = gen_unique_file_name()
-    file.save(os.path.join('./static/', filename + '.jpg'))
+    file.save(os.path.join('/static/', filename + '.jpg'))
 
     return filename
     
