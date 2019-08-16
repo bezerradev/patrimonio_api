@@ -6,9 +6,7 @@ import uuid
 
 app = Flask(__name__)
 
-app.config['DEBUG'] = True
-
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:postgres@localhost:5433/patri"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 db = SQLAlchemy(app)
 
