@@ -76,7 +76,7 @@ def gen_unique_file_name():
 
 @app.route('/img/<path:filename>') 
 def send_file(filename): 
-    return send_from_directory('./static/', filename)
+    return send_from_directory('/static/', filename)
 
 if __name__ == '__main__':
     app.run()
